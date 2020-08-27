@@ -32,6 +32,9 @@ class EmailSubmissionController extends Controller
         EmailSubmission::create([
             'email' => $request->email
         ]);
+
+        return response($request->email, 200)
+            ->header('Access-Control-Allow-Origin', 'http://localhost:3000'); // Will need to update this url
     }
 
     /**
