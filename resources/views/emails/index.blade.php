@@ -17,10 +17,10 @@
                             {{ $email->email }}
                         </td>
                         <td scope="row">
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEmailModal">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEmail{{ $email->id }}Modal">
                               Delete
                             </button>
-                            <div class="modal fade" id="deleteEmailModal" tabindex="-1" aria-labelledby="DeleteEmailModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteEmail{{ $email->id }}Modal" tabindex="-1" aria-labelledby="DeleteEmailModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
