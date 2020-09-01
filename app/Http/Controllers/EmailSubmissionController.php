@@ -14,7 +14,8 @@ class EmailSubmissionController extends Controller
      */
     public function index()
     {
-        //
+        return view('emails.index')
+            ->with(['emails' => EmailSubmission::paginate(10)]);
     }
 
     /**
@@ -68,6 +69,7 @@ class EmailSubmissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EmailSubmission::find($id)->delete();
+        return redirect()->back();
     }
 }

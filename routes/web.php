@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/email-submission/store', 'EmailSubmissionController@store');
+
+Route::get('/emails', 'EmailSubmissionController@index');
+Route::delete('/emails/{id}', 'EmailSubmissionController@destroy');
