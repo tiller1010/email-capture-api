@@ -14,7 +14,7 @@
                     @foreach($emails as $email)
                     <tr>
                         <td scope="row">
-                            {{ $email->email }}
+                            <a href="/email-submission-messages/{{ $email->id }}">{{ $email->email }}</a>
                         </td>
                         <td scope="row">
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEmail{{ $email->id }}Modal">

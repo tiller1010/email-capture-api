@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmailSubmission;
+use App\EmailMessage;
 
 class EmailSubmissionController extends Controller
 {
@@ -31,7 +32,7 @@ class EmailSubmissionController extends Controller
         ]);
 
         EmailSubmission::create([
-            'email' => $request->email
+            'email' => urldecode($request->email)
         ]);
 
         return response($request->email, 200)
@@ -46,7 +47,11 @@ class EmailSubmissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $emailSubmission = EmailSubmission::find($id);
+        return view('emails.show', [
+            'email' => $emailSubmission->email,
+            'messages' => EmailMessage::where('email_address', $emailSubmission->email)->pluck('message')
+        ]);
     }
 
     /**
